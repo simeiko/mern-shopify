@@ -1,0 +1,13 @@
+# Shopify Private Loader API Credentials
+
+shopName = "awesome-stars-shop"
+apiKey   = "PRIVATE_API_KEY_GOES_HERE"
+password = "PRIVATE_API_PASSWORD_GOES_HERE"
+
+# Shopify Product ID to sell
+
+productID = 657903386681
+
+# MongoDB connection
+
+mongoDB = 'mongodb://localhost/starDB'
