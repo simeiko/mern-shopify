@@ -17,7 +17,10 @@ mongoose.connection.on('error', () => {
  */
 app.get('/product', (req, res) => {
     Product.findById(process.env.productID, (error, data) => {
-        if(error) res.json(null);
+        if(error) {
+            res.json({});
+            process.exit();
+        }
 
         res.header("Access-Control-Allow-Origin", "*");
         res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -26,4 +29,4 @@ app.get('/product', (req, res) => {
     });
 });
 
-app.listen(5000, console.log('Server is listening on port 5000'));
+app.listen(process.env.port, console.log(`Server is listening on port ${process.env.port}`));

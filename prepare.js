@@ -1,8 +1,7 @@
 /**
  * Check MongoDB connection.
- * Checks Shopify API connection.
- * Saves Shopify product into the MongoDB.
- * Updates existing product.
+ * Check Shopify API connection.
+ * Save/Update Shopify product into the MongoDB.
  */
 
 const dotenv = require('dotenv').config();
@@ -44,7 +43,7 @@ async function prepare() {
 
     try {
         saveProduct({
-            id: process.env.productID,
+            id: product.id,
             title: product.title,
             body_html: product.body_html,
             image_src: product.images[0].src, // Grab only the first image
@@ -63,7 +62,7 @@ async function prepare() {
  */
 function saveProduct(productData) {
     Product.findByIdAndUpdate(
-        process.env.productID, // Product ID
+        productData.id, // Product ID
 
         productData, // Product Data
 
